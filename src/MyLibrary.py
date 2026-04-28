@@ -72,6 +72,7 @@ def about_me():
 
 class examples:
     def calc():
+        # Add error catching
         clear()
         print(pygradientify.Colors.mystic("=" * 50, dir="h"))
         print("Welcome to the calculator!")
@@ -188,11 +189,48 @@ class examples:
             input("\nPress any key to return to the example selection...")
             clear()
 
-    def example_2():
+    def user_greeting():
         clear()
         print(pygradientify.Colors.mystic("=" * 50, dir="h"))
-        print("Example 2")
+        print("User Greeting")
+        print(pygradientify.Colors.mystic("=" * 50, dir="h"))
+        time.sleep(1)
+        name = input(pygradientify.Colors.mystic("Enter your name: "))
+        print(f"Hello, {pygradientify.Colors.mystic(name)}!")
+
+        time.sleep(1)
+
+        print(
+            "That was printed with an f-string, f strings allow you to embed expressions inside string literals."
+        )
+
+        time.sleep(4)
+
+        print("Let's do it in a different way.")
+
         time.sleep(2)
+
+        print("Hello,", pygradientify.Colors.mystic(name) + "!")
+
+        time.sleep(2)
+
+        print(
+            "This was printed without an f-string. In this case, the name is simply concatenated with the string literal."
+        )
+
+        time.sleep(4)
+
+        print("""
+            The code for each:
+
+            *f-string*
+            print(f"Hello, {name}!")
+
+            *string concatenation*
+            print("Hello,", name + "!")
+            """)
+
+        input("Press Enter to continue...")
 
         return
 
@@ -200,7 +238,8 @@ class examples:
         clear()
         print(pygradientify.Colors.mystic("=" * 50, dir="h"))
         print("Example 3")
-        time.sleep(2)
+        print(pygradientify.Colors.mystic("=" * 50, dir="h"))
+        time.sleep(1)
 
         return
 
@@ -219,7 +258,7 @@ def example_selection():
 
         choices = {
             "1": ("calc", examples.calc),
-            "2": ("example_2", examples.example_2),
+            "2": ("user_greeting", examples.user_greeting),
             "3": ("example_3", examples.example_3),
         }
 
