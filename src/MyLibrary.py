@@ -281,9 +281,8 @@ def example_selection():
             time.sleep(0.2)
             exit(0)  # Exit with a success code
         else:
-            print("Invalid choice, exiting.")
+            print("Invalid choice. Try again.")
             time.sleep(1)
-            exit(1)  # Exit with an error code, not return.
 
 
 def seq():
