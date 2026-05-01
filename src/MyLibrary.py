@@ -4,12 +4,29 @@ import argparse
 import os
 import time
 
-import pygradientify
+import pygradientify # <-- Going to migrate to github.com/purectl pystyle fork, soon,
+"""
+# Remove what you need and keep what you need. 
+from pystyle import (
+    Colors, Colorate, Anime, Banner, Box, System, Cursor, Write, Center,
+    RainbowCycle, RainbowTime, Table, Progress, Menu, Tree, Columns, Figlet,
+    Gradient, Confirm, Input, Select, Slider, SelectionGroup, RadioGroup, CheckboxGroup, Panel, Form, Theme, Loading, Icons, Badge, badge_success, badge_danger, badge_warning, badge_info, badge_primary, Divider, Sparkline, JsonViewer, Grid, hstack, vstack, LineChart, _sleep, Logger
+)
+"""
 
 # Create the argument parser and add the --no-intro flag
 parser = argparse.ArgumentParser()
 parser.add_argument("--no-intro", action="store_true")
+
+# Straight to example selection if the flag is provided.
 # parser.add_argument("--example", action="store_int") <-- Integrate later
+
+# if args.example:
+#     # If an example is provided, skip the intro and go straight to the example selection.
+#     args.no_intro = True  # Set no_intro to True if an example is provided
+#     # Set the example selection to the provided example number
+#     example_selection(args.example)
+
 
 args = parser.parse_args()
 
@@ -66,12 +83,22 @@ def about_me():
 
     time.sleep(5)
 
-
-# Add examples as we go
-
+# Calc ban
+calc_banned = False
 
 class examples:
+
+    # All examples go here!!
+
     def calc():
+
+        global calc_banned
+        
+        if calc_banned:
+            print("You are banned from using the calculator. Please choose a different example.")
+            time.sleep(2)
+            return
+        
         # Add error catching
         clear()
         print(pygradientify.Colors.mystic("=" * 50, dir="h"))
@@ -144,16 +171,12 @@ class examples:
                     input_1 = float(
                         input(pygradientify.Colors.mystic("First number: "))
                     )
-                except ValueError:
-                    print("Invalid input. Please enter a number.")
-                    return
-                try:
                     input_2 = float(
                         input(pygradientify.Colors.mystic("Second number: "))
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    return
+                    continue
                 result = operation.add(input_1, input_2)
                 print(f"Result: {result}")
 
@@ -161,17 +184,13 @@ class examples:
                 try:
                     input_1 = float(
                         input(pygradientify.Colors.mystic("First number: "))
-                    )
-                except ValueError:
-                    print("Invalid input. Please enter a number.")
-                    return
-                try:
+                    )  
                     input_2 = float(
                         input(pygradientify.Colors.mystic("Second number: "))
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    return
+                    continue
                 result = operation.subtract(input_1, input_2)
                 print(f"Result: {result}")
 
@@ -180,16 +199,12 @@ class examples:
                     input_1 = float(
                         input(pygradientify.Colors.mystic("First number: "))
                     )
-                except ValueError:
-                    print("Invalid input. Please enter a number.")
-                    return
-                try:
                     input_2 = float(
                         input(pygradientify.Colors.mystic("Second number: "))
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    return
+                    continue
                 result = operation.multiply(input_1, input_2)
                 print(f"Result: {result}")
 
@@ -198,16 +213,57 @@ class examples:
                     input_1 = float(
                         input(pygradientify.Colors.mystic("First number: "))
                     )
-                except ValueError:
-                    print("Invalid input. Please enter a number.")
-                    return
-                try:
                     input_2 = float(
                         input(pygradientify.Colors.mystic("Second number: "))
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    return
+                    continue
+
+                if input_2 == 0:
+                    print("Cannot divide by zero. Nice try though.")
+                    print("type ok to return or type why to find out why.")
+
+                    while True:
+                        choice = input("Your choice: ")
+
+                        if choice.lower() == "ok":
+                            break
+                        elif choice.lower() == "why":
+                            print("""
+Dividing by zero is undefined in mathematics because it leads to contradictions and breaks the fundamental properties of numbers. You are trying to divide a number into zero parts. Technically you could say the result is 0 with a remainder of the original number. But this isn't how maths work. It would break the properties of numbers. If you divide a number by another number, you should be able to multipy the result by the other number to get the original number back. But if you divide by zero, you can't do that. It would break the properties of numbers and lead to contradictions. So it's undefined. It breaks the fundamental properties of maths, which is why it's undefined in mathematics.
+                                  
+
+                            Do you understand now? (y/n)
+                            """)
+                            while True:
+                                choice = input("Your choice: ")
+
+                                if choice.lower() == "y":
+                                    print("Great! Now don't touch the calculator ever again.")
+                                    calc_banned = True
+                                    break
+
+                                elif choice.lower() == "n":
+                                    print("No worries, it can be a bit confusing. Ill repeat it 50 times.")
+                                    time.sleep(2)
+                                    for i in range(50):
+                                        print("""
+Dividing by zero is undefined in mathematics because it leads to contradictions and breaks the fundamental properties of numbers. You are trying to divide a number into zero parts. Technically you could say the result is 0 with a remainder of the original number. But this isn't how maths work. It would break the properties of numbers. If you divide a number by another number, you should be able to multipy the result by the other number to get the original number back. But if you divide by zero, you can't do that. It would break the properties of numbers and lead to contradictions. So it's undefined. It breaks the fundamental properties of maths, which is why it's undefined in mathematics.
+                                        """)
+                                        time.sleep(0.1)
+
+                                        if i == 50:
+                                            print("Do you understand now? (y/n)")
+
+                                else:
+                                    print("Invalid choice. Please type y or n.")
+                            break
+
+                        else:
+                            print("Invalid choice. Please type ok or why.")
+                    continue
+
                 result = operation.divide(input_1, input_2)
                 print(f"Result: {result}")
 
@@ -216,16 +272,13 @@ class examples:
                     input_1 = float(
                         input(pygradientify.Colors.mystic("First number: "))
                     )
-                except ValueError:
-                    print("Invalid input. Please enter a number.")
-                    return
-                try:
                     input_2 = float(
                         input(pygradientify.Colors.mystic("Second number: "))
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    return
+                    continue
+                    
                 result = operation.power(input_1, input_2)
                 print(f"Result: {result}")
 
@@ -234,7 +287,7 @@ class examples:
                     input_1 = float(input(pygradientify.Colors.mystic("Number: ")))
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    return
+                    continue   
                 result = operation.sqrt(input_1)
                 print(f"Result: {result}")
 
@@ -243,20 +296,18 @@ class examples:
                     input_1 = float(
                         input(pygradientify.Colors.mystic("First number: "))
                     )
-                except ValueError:
-                    print("Invalid input. Please enter a number.")
-                    return
-                try:
                     input_2 = float(
                         input(pygradientify.Colors.mystic("Second number: "))
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    return
+                    continue
                 result = operation.remainder(input_1, input_2)
                 print(f"Result: {result}")
 
-            elif choice == "exit" or choice == "x":
+            elif choice == "exit" or choice == "x" or choice == "q":
+                print("Exiting...")
+                time.sleep(1)
                 return
 
             else:
@@ -321,6 +372,7 @@ class examples:
 
 
 # Add example functions above this line
+
 def example_selection():
     while True:
         # Clear the screen and print the example selection message
@@ -342,20 +394,38 @@ def example_selection():
         - 1 {choices["1"][0]}
         - 2 {choices["2"][0]}
         - 3 {choices["3"][0]}
-        - x exit
+        - x/q exit
         """)
 
         choice = input("Number of the example you want to run: ")
 
         time.sleep(1)
 
-        if choice in choices:
-            choices[choice][1]()
+        # if choice in choices:
+        #     choices[choice][1]()
 
-        elif choice.lower() == "x":
+        # elif choice.lower() == "x" or choice.lower() == "q":
+        #     print("Exiting...")
+        #     time.sleep(0.2)
+        #     exit(0)  # Exit with a success code
+        # else:
+        #     print("Invalid choice. Try again.")
+        #     time.sleep(1)
+        # ^^^ WILL BE REMOVED NEXT COMMIT.
+
+        # Start of recode
+
+        if choice and choice[0] in choices:
+            if len(choice) > 1:
+                print("You entered more than one character, over here just take the first one.")
+                time.sleep(1)
+            choices[choice[0]][1]()
+
+        elif choice.lower() == "x" or choice.lower() == "q":
             print("Exiting...")
             time.sleep(0.2)
             exit(0)  # Exit with a success code
+
         else:
             print("Invalid choice. Try again.")
             time.sleep(1)
@@ -378,4 +448,4 @@ if __name__ == "__main__":
 
     except KeyboardInterrupt:
         print("\nAborted by user!")
-        exit(0)  # Exit with a success code, not an error.
+        exit(0) 
