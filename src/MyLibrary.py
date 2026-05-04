@@ -4,9 +4,10 @@ import argparse
 import os
 import time
 
-import pygradientify # <-- Going to migrate to github.com/purectl pystyle fork, soon,
+import pygradientify  # <-- Going to migrate to github.com/purectl pystyle fork, soon,
+
 """
-# Remove what you need and keep what you need. 
+# Remove what you need and keep what you need.
 from pystyle import (
     Colors, Colorate, Anime, Banner, Box, System, Cursor, Write, Center,
     RainbowCycle, RainbowTime, Table, Progress, Menu, Tree, Columns, Figlet,
@@ -78,27 +79,31 @@ def about_me():
     - Github:
         - Personal: https://github.com/Hxmbl
         - School: https://github.com/y22Hxmbl
+
     - Country: United Kingdom
         """)
 
     time.sleep(5)
 
+
 # Calc ban
 calc_banned = False
 
-class examples:
 
+class examples:
     # All examples go here!!
 
     def calc():
 
         global calc_banned
-        
+
         if calc_banned:
-            print("You are banned from using the calculator. Please choose a different example.")
+            print(
+                "You are banned from using the calculator. Please choose a different example."
+            )
             time.sleep(2)
             return
-        
+
         # Add error catching
         clear()
         print(pygradientify.Colors.mystic("=" * 50, dir="h"))
@@ -150,7 +155,7 @@ class examples:
                 "5": ("power", operation.power),
                 "6": ("sqrt", operation.sqrt),
                 "7": ("remainder", operation.remainder),
-                "x": ("exit", None),
+                "x/q": ("exit", None),
             }
 
             for i in operations:
@@ -176,6 +181,8 @@ class examples:
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
+                    time.sleep(3)
+                    clear()
                     continue
                 result = operation.add(input_1, input_2)
                 print(f"Result: {result}")
@@ -184,12 +191,14 @@ class examples:
                 try:
                     input_1 = float(
                         input(pygradientify.Colors.mystic("First number: "))
-                    )  
+                    )
                     input_2 = float(
                         input(pygradientify.Colors.mystic("Second number: "))
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
+                    time.sleep(3)
+                    clear()
                     continue
                 result = operation.subtract(input_1, input_2)
                 print(f"Result: {result}")
@@ -204,6 +213,8 @@ class examples:
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
+                    time.sleep(3)
+                    clear()
                     continue
                 result = operation.multiply(input_1, input_2)
                 print(f"Result: {result}")
@@ -218,43 +229,56 @@ class examples:
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
+                    time.sleep(3)
+                    clear()
                     continue
 
                 if input_2 == 0:
                     print("Cannot divide by zero. Nice try though.")
-                    print("type ok to return or type why to find out why.")
+                    print("Type ok to return or type why to find out why.")
 
                     while True:
-                        choice = input("Your choice: ")
+                        choice = input(
+                            pygradientify.Colors.mystic("Your choice (ok/why): ")
+                        )
 
                         if choice.lower() == "ok":
                             break
                         elif choice.lower() == "why":
+                            clear()
                             print("""
-Dividing by zero is undefined in mathematics because it leads to contradictions and breaks the fundamental properties of numbers. You are trying to divide a number into zero parts. Technically you could say the result is 0 with a remainder of the original number. But this isn't how maths work. It would break the properties of numbers. If you divide a number by another number, you should be able to multipy the result by the other number to get the original number back. But if you divide by zero, you can't do that. It would break the properties of numbers and lead to contradictions. So it's undefined. It breaks the fundamental properties of maths, which is why it's undefined in mathematics.
-                                  
+Dividing by zero is undefined in mathematics because it leads to contradictions and breaks the fundamental properties of numbers.
+You are trying to divide a number into zero parts. Technically you could say the result is 0 with a remainder of the original number. But this isn't how maths works.
+It would break the properties of numbers. If you divide a number by another number, you should be able to multipy the result by the other number to get the original number back.
+But if you divide by zero, you can't do that. It would break the properties of numbers and lead to contradictions.
+So it's undefined.
+It breaks the fundamental properties of maths, which is why it's undefined in mathematics.
 
-                            Do you understand now? (y/n)
+Do you understand now? (y/n)
                             """)
                             while True:
-                                choice = input("Your choice: ")
+                                choice = input(
+                                    pygradientify.Colors.mystic("Your choice: ")
+                                )
 
                                 if choice.lower() == "y":
-                                    print("Great! Now don't touch the calculator ever again.")
+                                    print(
+                                        "Great! Now don't touch the calculator ever again."
+                                    )
                                     calc_banned = True
-                                    break
+                                    time.sleep(3)
+                                    return
 
                                 elif choice.lower() == "n":
-                                    print("No worries, it can be a bit confusing. Ill repeat it 50 times.")
+                                    print(
+                                        "No worries, it can be a bit confusing. Ill repeat it 50 times."
+                                    )
                                     time.sleep(2)
                                     for i in range(50):
                                         print("""
 Dividing by zero is undefined in mathematics because it leads to contradictions and breaks the fundamental properties of numbers. You are trying to divide a number into zero parts. Technically you could say the result is 0 with a remainder of the original number. But this isn't how maths work. It would break the properties of numbers. If you divide a number by another number, you should be able to multipy the result by the other number to get the original number back. But if you divide by zero, you can't do that. It would break the properties of numbers and lead to contradictions. So it's undefined. It breaks the fundamental properties of maths, which is why it's undefined in mathematics.
                                         """)
                                         time.sleep(0.1)
-
-                                        if i == 50:
-                                            print("Do you understand now? (y/n)")
 
                                 else:
                                     print("Invalid choice. Please type y or n.")
@@ -277,8 +301,10 @@ Dividing by zero is undefined in mathematics because it leads to contradictions 
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
+                    time.sleep(3)
+                    clear()
                     continue
-                    
+
                 result = operation.power(input_1, input_2)
                 print(f"Result: {result}")
 
@@ -287,7 +313,9 @@ Dividing by zero is undefined in mathematics because it leads to contradictions 
                     input_1 = float(input(pygradientify.Colors.mystic("Number: ")))
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    continue   
+                    time.sleep(3)
+                    clear()
+                    continue
                 result = operation.sqrt(input_1)
                 print(f"Result: {result}")
 
@@ -301,6 +329,8 @@ Dividing by zero is undefined in mathematics because it leads to contradictions 
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
+                    time.sleep(3)
+                    clear()
                     continue
                 result = operation.remainder(input_1, input_2)
                 print(f"Result: {result}")
@@ -308,6 +338,7 @@ Dividing by zero is undefined in mathematics because it leads to contradictions 
             elif choice == "exit" or choice == "x" or choice == "q":
                 print("Exiting...")
                 time.sleep(1)
+                clear()
                 return
 
             else:
@@ -322,39 +353,42 @@ Dividing by zero is undefined in mathematics because it leads to contradictions 
         print("User Greeting")
         print(pygradientify.Colors.mystic("=" * 50, dir="h"))
         time.sleep(1)
-        name = input(pygradientify.Colors.mystic("Enter your name: "))
-        print(f"Hello, {pygradientify.Colors.mystic(name)}!")
+        name = input(pygradientify.Colors.mystic("Hi,") + " what's your name: ")
+        print(f"\nHello, {pygradientify.Colors.mystic(name)}!")
 
         time.sleep(1)
 
         print(
-            "That was printed with an f-string, f strings allow you to embed expressions inside string literals."
+            "\nThat was printed with an f-string, f strings allow you to embed expressions inside string literals."
         )
 
         time.sleep(4)
 
-        print("Let's do it in a different way.")
+        print("\nLet's do it in a different way.")
 
         time.sleep(2)
 
-        print("Hello,", pygradientify.Colors.mystic(name) + "!")
+        print("\nHello,", pygradientify.Colors.mystic(name) + "!")
 
         time.sleep(2)
 
         print(
-            "This was printed without an f-string. In this case, the name is simply concatenated with the string literal."
+            "\nThis was printed without an f-string. In this case, the name is simply concatenated with the string literal."
         )
 
         time.sleep(4)
 
         print("""
+
             The code for each:
 
-            *f-string*
+            # f-string
             print(f"Hello, {name}!")
 
-            *string concatenation*
+            # string concatenation
             print("Hello,", name + "!")
+
+
             """)
 
         input("Press Enter to continue...")
@@ -372,6 +406,7 @@ Dividing by zero is undefined in mathematics because it leads to contradictions 
 
 
 # Add example functions above this line
+
 
 def example_selection():
     while True:
@@ -401,23 +436,11 @@ def example_selection():
 
         time.sleep(1)
 
-        # if choice in choices:
-        #     choices[choice][1]()
-
-        # elif choice.lower() == "x" or choice.lower() == "q":
-        #     print("Exiting...")
-        #     time.sleep(0.2)
-        #     exit(0)  # Exit with a success code
-        # else:
-        #     print("Invalid choice. Try again.")
-        #     time.sleep(1)
-        # ^^^ WILL BE REMOVED NEXT COMMIT.
-
-        # Start of recode
-
         if choice and choice[0] in choices:
             if len(choice) > 1:
-                print("You entered more than one character, over here just take the first one.")
+                print(
+                    "You entered more than one character, over here just take the first one."
+                )
                 time.sleep(1)
             choices[choice[0]][1]()
 
@@ -448,4 +471,4 @@ if __name__ == "__main__":
 
     except KeyboardInterrupt:
         print("\nAborted by user!")
-        exit(0) 
+        exit(0)
