@@ -2,8 +2,10 @@
 
 import argparse
 import os
+import random
 import time
 
+import animation
 import pygradientify  # <-- Going to migrate to github.com/purectl pystyle fork, soon,
 
 """
@@ -397,14 +399,38 @@ Dividing by zero is undefined in mathematics because it leads to contradictions 
 
         return
 
-    def example_3():
-        clear()
-        print(pygradientify.Colors.mystic("=" * 50, dir="h"))
-        print("Example 3")
-        print(pygradientify.Colors.mystic("=" * 50, dir="h"))
-        time.sleep(1)
+    def dice_roll():
+        @animation.wait("bar", color="purple")
+        def roll_dice(sides):
+            dice = random.randint(1, sides)
+            time.sleep(2)
+            return dice
 
-        return
+        while True:
+            clear()
+            print(pygradientify.Colors.mystic("=" * 50, dir="h"))
+            print("Dice Roll")
+            print(pygradientify.Colors.mystic("=" * 50, dir="h"))
+            time.sleep(1)
+
+            sides = int(input("How much sides does the dice have: "))
+            input("Press Enter to roll the dice...")
+
+            print("")
+            print(pygradientify.Colors.mystic("=" * 50, dir="h"))
+
+            try:
+                roll = roll_dice(sides)
+                print(f"You rolled a {roll}!")
+            except ValueError:
+                print("Put in a number!!")
+
+            print("would you like to roll again? (y/n)")
+            choice = input()
+            if choice.lower() == "y":
+                continue
+            else:
+                return
 
 
 # Add example functions above this line
@@ -424,7 +450,7 @@ def example_selection():
         choices = {
             "1": ("calc", examples.calc),
             "2": ("user_greeting", examples.user_greeting),
-            "3": ("example_3", examples.example_3),
+            "3": ("dice_roll", examples.dice_roll),
         }
 
         print(f"""
