@@ -125,6 +125,11 @@ class examples:
             def divide(a, b):
                 return a / b
 
+            def divide_with_remainder(a, b):
+                full_division = a // b
+                remainder = a % b
+                return full_division, remainder
+
             def power(a, b):
                 return a**b
 
@@ -152,9 +157,10 @@ class examples:
                 "2": ("subtract", operation.subtract),
                 "3": ("multiply", operation.multiply),
                 "4": ("divide", operation.divide),
-                "5": ("power", operation.power),
-                "6": ("sqrt", operation.sqrt),
+                "5": ("divide with remainder", operation.divide_with_remainder),
+                "6": ("power", operation.power),
                 "7": ("remainder", operation.remainder),
+                "8": ("sqrt", operation.sqrt),
                 "x/q": ("exit", None),
             }
 
@@ -291,7 +297,7 @@ Dividing by zero is undefined in mathematics because it leads to contradictions 
                 result = operation.divide(input_1, input_2)
                 print(f"Result: {result}")
 
-            elif choice == "power" or choice == "5":
+            elif choice == "divide with remainder" or choice == "5":
                 try:
                     input_1 = float(
                         input(pygradientify.Colors.mystic("First number: "))
@@ -305,10 +311,22 @@ Dividing by zero is undefined in mathematics because it leads to contradictions 
                     clear()
                     continue
 
-                result = operation.power(input_1, input_2)
+                result = operation.divide_with_remainder(input_1, input_2)
+                full_division, remainder = result
+                print(f"Result: {int(full_division)} remainder: {int(remainder)}")
+
+            elif choice == "remainder" or choice == "7":
+                try:
+                    input_1 = float(input(pygradientify.Colors.mystic("Number: ")))
+                except ValueError:
+                    print("Invalid input. Please enter a number.")
+                    time.sleep(3)
+                    clear()
+                    continue
+                result = operation.remainder(input_1, input_2)
                 print(f"Result: {result}")
 
-            elif choice == "sqrt" or choice == "6":
+            elif choice == "sqrt" or choice == "8":
                 try:
                     input_1 = float(input(pygradientify.Colors.mystic("Number: ")))
                 except ValueError:
@@ -317,22 +335,6 @@ Dividing by zero is undefined in mathematics because it leads to contradictions 
                     clear()
                     continue
                 result = operation.sqrt(input_1)
-                print(f"Result: {result}")
-
-            elif choice == "remainder" or choice == "7":
-                try:
-                    input_1 = float(
-                        input(pygradientify.Colors.mystic("First number: "))
-                    )
-                    input_2 = float(
-                        input(pygradientify.Colors.mystic("Second number: "))
-                    )
-                except ValueError:
-                    print("Invalid input. Please enter a number.")
-                    time.sleep(3)
-                    clear()
-                    continue
-                result = operation.remainder(input_1, input_2)
                 print(f"Result: {result}")
 
             elif choice == "exit" or choice == "x" or choice == "q":
