@@ -407,7 +407,7 @@ Do you understand now? (y/n)
         return
 
     def dice_roll():
-        @animation.wait("bar", color="purple")
+        @animation.wait("spinner", color="magenta")
         def roll_dice(sides):
             dice = random.randint(1, sides)
             time.sleep(2)
@@ -440,7 +440,32 @@ Do you understand now? (y/n)
                 return
 
     def if_else_example():
-        return
+        clear()
+        print(pygradientify.Colors.mystic("=" * 50, dir="h"))
+        print("if-else example")
+        print(pygradientify.Colors.mystic("=" * 50, dir="h"))
+
+        num = int(input("Enter a number: "))
+
+        time.sleep(1)
+
+        if num > 0:
+            print("The number is positive.")
+        elif num < 0:
+            print("The number is negative.")
+        else:
+            print("The number is zero.")
+
+        time.sleep(1)
+
+        print("This was determined using an if-else statement.")
+
+        time.sleep(2)
+
+        print("Here's the code for this example:")
+        print(examples.if_else_example)
+
+        input()
 
 
 # Add example functions above this line
@@ -461,19 +486,18 @@ def example_selection():
             "1": ("calc", examples.calc),
             "2": ("user_greeting", examples.user_greeting),
             "3": ("dice_roll", examples.dice_roll),
-            "4": ("if else showcase", examples.if_else_example),
+            "4": ("if_else_example", examples.if_else_example),
         }
 
-        print(f"""
-        - 1 {choices["1"][0]}
-        - 2 {choices["2"][0]}
-        - 3 {choices["3"][0]}
-        - x/q exit
-        """)
+        for i in choices:
+            print(f"- {i} {choices[i][0]}")
+        print("- x/q exit")
 
         choice = input("Number of the example you want to run: ")
 
         time.sleep(1)
+
+        # ERROR: 4 still doesn't work
 
         if choice and choice[0] in choices:
             if len(choice) > 1:
