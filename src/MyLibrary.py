@@ -7,6 +7,8 @@ import time
 
 import animation
 import pygradientify  # <-- Going to migrate to github.com/purectl pystyle fork, soon,
+import rich
+from rich.syntax import Syntax
 
 """
 # Remove what you need and keep what you need.
@@ -364,6 +366,7 @@ Do you understand now? (y/n)
         print("User Greeting")
         print(pygradientify.Colors.mystic("=" * 50, dir="h"))
         time.sleep(1)
+
         name = input(pygradientify.Colors.mystic("Hi,") + " what's your name: ")
         print(f"\nHello, {pygradientify.Colors.mystic(name)}!")
 
@@ -389,9 +392,10 @@ Do you understand now? (y/n)
 
         time.sleep(4)
 
-        print("""
+        string_showcase_code = """
+            # The code for each:
 
-            The code for each:
+            name = input("Hi, what's your name: ")
 
             # f-string
             print(f"Hello, {name}!")
@@ -399,8 +403,13 @@ Do you understand now? (y/n)
             # string concatenation
             print("Hello,", name + "!")
 
+        """
 
-            """)
+        syntax = Syntax(
+            string_showcase_code, "python", theme="ansi_dark", line_numbers=True
+        )
+
+        rich.print(syntax)
 
         input("Press Enter to continue...")
 
@@ -463,7 +472,7 @@ Do you understand now? (y/n)
         time.sleep(2)
 
         print("Here's the code for this example:")
-        print(examples.if_else_example)
+        # print(examples.if_else_example)
 
         input()
 
