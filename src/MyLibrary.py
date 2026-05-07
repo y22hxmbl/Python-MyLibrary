@@ -472,9 +472,31 @@ Do you understand now? (y/n)
         time.sleep(2)
 
         print("Here's the code for this example:")
-        # print(examples.if_else_example)
 
-        input()
+        string_showcase_code = """
+            num = int(input("Enter a number: "))
+
+            if num > 0:
+                print("The number is positive.")
+            elif num < 0:
+                print("The number is negative.")
+            else:
+                print("The number is zero.")
+        """
+
+        syntax = Syntax(
+            string_showcase_code, "python", theme="ansi_dark", line_numbers=True
+        )
+
+        rich.print(syntax)
+
+        input("Press Enter to continue...")
+
+        print(
+            "If-else statements are really powerful, and used all the time. AI is technically a lot of if-else statements stacked on top of each other."
+        )
+
+        time.sleep(6)
 
 
 # Add example functions above this line
