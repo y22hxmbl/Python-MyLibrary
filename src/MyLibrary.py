@@ -566,3 +566,9 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\nAborted by user!")
         exit(0)
+
+    except Exception as e:
+        print(
+            f"An error occurred or u quit during an input(), if it was an error, here it is: {e}"
+        )
+        exit(1)
