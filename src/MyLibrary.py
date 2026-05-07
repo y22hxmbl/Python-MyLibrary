@@ -284,7 +284,14 @@ Do you understand now? (y/n)
                                     time.sleep(2)
                                     for i in range(50):
                                         print("""
-Dividing by zero is undefined in mathematics because it leads to contradictions and breaks the fundamental properties of numbers. You are trying to divide a number into zero parts. Technically you could say the result is 0 with a remainder of the original number. But this isn't how maths work. It would break the properties of numbers. If you divide a number by another number, you should be able to multipy the result by the other number to get the original number back. But if you divide by zero, you can't do that. It would break the properties of numbers and lead to contradictions. So it's undefined. It breaks the fundamental properties of maths, which is why it's undefined in mathematics.
+Dividing by zero is undefined in mathematics because it leads to contradictions and breaks the fundamental properties of numbers.
+You are trying to divide a number into zero parts. Technically you could say the result is 0 with a remainder of the original number. But this isn't how maths works.
+It would break the properties of numbers. If you divide a number by another number, you should be able to multipy the result by the other number to get the original number back.
+But if you divide by zero, you can't do that. It would break the properties of numbers and lead to contradictions.
+So it's undefined.
+It breaks the fundamental properties of maths, which is why it's undefined in mathematics.
+
+Do you understand now? (y/n)
                                         """)
                                         time.sleep(0.1)
 
@@ -432,6 +439,9 @@ Dividing by zero is undefined in mathematics because it leads to contradictions 
             else:
                 return
 
+    def if_else_example():
+        return
+
 
 # Add example functions above this line
 
@@ -451,6 +461,7 @@ def example_selection():
             "1": ("calc", examples.calc),
             "2": ("user_greeting", examples.user_greeting),
             "3": ("dice_roll", examples.dice_roll),
+            "4": ("if else showcase", examples.if_else_example),
         }
 
         print(f"""
