@@ -439,6 +439,9 @@ Do you understand now? (y/n)
             else:
                 return
 
+    def if_else_example():
+        return
+
 
 # Add example functions above this line
 
@@ -458,6 +461,7 @@ def example_selection():
             "1": ("calc", examples.calc),
             "2": ("user_greeting", examples.user_greeting),
             "3": ("dice_roll", examples.dice_roll),
+            "4": ("if else showcase", examples.if_else_example),
         }
 
         print(f"""
