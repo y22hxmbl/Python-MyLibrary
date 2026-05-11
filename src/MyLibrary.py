@@ -48,7 +48,7 @@ def intro():
     print(pygradientify.Colors.mystic("=" * 50, dir="h"))
 
     time.sleep(2)
-    
+
     print("A collection of python subprograms and functions.")
 
     time.sleep(2)
@@ -186,7 +186,6 @@ class examples:
             choice = input("Choose an operation: ")
 
             if choice == "add" or choice == "1":
-                clear()
                 try:
                     input_1 = float(
                         input(pygradientify.Colors.mystic("First number: "))
