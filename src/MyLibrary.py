@@ -195,7 +195,7 @@ class examples:
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    time.sleep(3)
+                    input("Press enter to continue...")
                     clear()
                     continue
                 result = operation.add(input_1, input_2)
@@ -211,7 +211,7 @@ class examples:
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    time.sleep(3)
+                    input("Press enter to continue...")
                     clear()
                     continue
                 result = operation.subtract(input_1, input_2)
@@ -227,7 +227,7 @@ class examples:
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    time.sleep(3)
+                    input("Press enter to continue...")
                     clear()
                     continue
                 result = operation.multiply(input_1, input_2)
@@ -243,7 +243,7 @@ class examples:
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    time.sleep(3)
+                    input("Press enter to continue...")
                     clear()
                     continue
 
@@ -322,7 +322,7 @@ Do you understand now? (y/n)
                     )
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    time.sleep(3)
+                    input("Press enter to continue...")
                     clear()
                     continue
 
@@ -330,12 +330,30 @@ Do you understand now? (y/n)
                 full_division, remainder = result
                 print(f"Result: {int(full_division)} remainder: {int(remainder)}")
 
-            elif choice == "remainder" or choice == "7":
+            elif choice == "power" or choice == "6":
                 try:
                     input_1 = float(input(pygradientify.Colors.mystic("Number: ")))
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    time.sleep(3)
+                    input("Press enter to continue...")
+                    clear()
+                    continue
+                try:
+                    input_2 = float(input(pygradientify.Colors.mystic("Exponent: ")))
+                except ValueError:
+                    print("No number detected. Defaulting to 2.")
+                    input_2 = 2
+                    input("Press enter to continue...")
+                result = operation.power(input_1, input_2)
+                print(f"Result: {result}")
+
+            elif choice == "remainder" or choice == "7":
+                try:
+                    input_1 = float(input(pygradientify.Colors.mystic("Number: ")))
+                    input_2 = float(input(pygradientify.Colors.mystic("Divisor: ")))
+                except ValueError:
+                    print("Invalid input. Please enter a number.")
+                    input("Press enter to continue...")
                     clear()
                     continue
                 result = operation.remainder(input_1, input_2)
@@ -346,7 +364,7 @@ Do you understand now? (y/n)
                     input_1 = float(input(pygradientify.Colors.mystic("Number: ")))
                 except ValueError:
                     print("Invalid input. Please enter a number.")
-                    time.sleep(3)
+                    input("Press enter to continue...")
                     clear()
                     continue
                 result = operation.sqrt(input_1)
