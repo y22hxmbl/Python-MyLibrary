@@ -48,6 +48,11 @@ def intro():
     print(pygradientify.Colors.mystic("=" * 50, dir="h"))
 
     time.sleep(2)
+    
+    print("A collection of python subprograms and functions.")
+
+    time.sleep(2)
+
     return
 
 
@@ -79,12 +84,12 @@ def about_me():
     )
 
     print("""
-    - Name: Hxmbl
-    - Github:
-        - Personal: https://github.com/Hxmbl
-        - School: https://github.com/y22Hxmbl
+ - Name: Hxmbl
+ - Github:
+    - Personal: https://github.com/Hxmbl
+    - School: https://github.com/y22Hxmbl
 
-    - Country: United Kingdom
+ - Country: United Kingdom
         """)
 
     time.sleep(5)
@@ -357,7 +362,7 @@ Do you understand now? (y/n)
             else:
                 print(pygradientify.Colors.mystic("Invalid choice.", dir="h"))
 
-            input("\nPress any key to return to the example selection...")
+            input("\nPress any key to return to the operation selection...")
             clear()
 
     def user_greeting():
