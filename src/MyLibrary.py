@@ -257,6 +257,7 @@ class examples:
                         )
 
                         if choice.lower() == "ok":
+                            clear()
                             break
                         elif choice.lower() == "why":
                             clear()
@@ -325,8 +326,13 @@ Do you understand now? (y/n)
                     input("Press enter to continue...")
                     clear()
                     continue
-
-                result = operation.divide_with_remainder(input_1, input_2)
+                try:
+                    result = operation.divide_with_remainder(input_1, input_2)
+                except ZeroDivisionError:
+                    print("no.")
+                    input("Press enter to continue...")
+                    clear()
+                    continue
                 full_division, remainder = result
                 print(f"Result: {int(full_division)} remainder: {int(remainder)}")
 
@@ -461,7 +467,7 @@ Do you understand now? (y/n)
                 roll = roll_dice(sides)
                 print(f"You rolled a {roll}!")
             except ValueError:
-                print("Put in a number!!")
+                print("Put in a POSITIVE number!!")
 
             print("would you like to roll again? (y/n)")
             choice = input()
@@ -489,11 +495,11 @@ Do you understand now? (y/n)
 
         time.sleep(1)
 
-        print("This was determined using an if-else statement.")
+        print("\nThis was determined using an if-else statement.")
 
         time.sleep(2)
 
-        print("Here's the code for this example:")
+        print("\nHere's the code for this example:")
 
         string_showcase_code = """
             num = int(input("Enter a number: "))
@@ -512,14 +518,14 @@ Do you understand now? (y/n)
 
         rich.print(syntax)
 
-        input("Press Enter to continue...")
-
         print(
-            "If-else statements are really powerful, and used all the time. AI is technically a lot of if-else statements stacked on top of each other."
+            "\nIf-else statements are really powerful, and used all the time.\n AI is technically a lot of if-else statements stacked on top of each other."
         )
 
-        time.sleep(6)
+    
+        time.sleep(5)
 
+        input("Press enter to continue...")
 
 # Add example functions above this line
 
