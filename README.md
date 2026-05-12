@@ -16,5 +16,5 @@ Simple block because I am lazy:
 Will require the GitHub CLI (as I like it) to run the command, you can install it from https://cli.github.com/
 
 ```bash
-gh repo clone y22hxmb/Python-MyLibrary && cd Python-MyLibrary && python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt && python src/main.py
+gh repo clone y22hxmbl/Python-MyLibrary && cd Python-MyLibrary && python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt && python src/main.py
 ```
