@@ -527,6 +527,15 @@ Do you understand now? (y/n)
 
         input("Press enter to continue...")
 
+
+    def while_loops:
+        break
+
+    def for_loops:
+        break
+
+
+
 # Add example functions above this line
 
 
