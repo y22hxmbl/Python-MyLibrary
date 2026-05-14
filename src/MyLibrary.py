@@ -529,9 +529,11 @@ Do you understand now? (y/n)
 
 
     def while_loops:
+        # Show how while loops work and why they're useful. Have ready made example.
         break
 
     def for_loops:
+        # Show how for loops work an why they're useful. Have ready made example.
         break
 
 
