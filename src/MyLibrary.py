@@ -522,20 +522,17 @@ Do you understand now? (y/n)
             "\nIf-else statements are really powerful, and used all the time.\n AI is technically a lot of if-else statements stacked on top of each other."
         )
 
-    
         time.sleep(5)
 
         input("Press enter to continue...")
 
-
-    def while_loops:
+    def while_loops():
         # Show how while loops work and why they're useful. Have ready made example.
-        break
+        return
 
-    def for_loops:
+    def for_loops():
         # Show how for loops work an why they're useful. Have ready made example.
-        break
-
+        return
 
 
 # Add example functions above this line
