@@ -24,17 +24,15 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--no-intro", action="store_true")
 
 # Straight to example selection if the flag is provided.
-# parser.add_argument("--example", action="store_int") <-- Integrate later
 
+# parser.add_argument("--example", action="type_int") <-- Integrate later
 # if args.example:
 #     # If an example is provided, skip the intro and go straight to the example selection.
 #     args.no_intro = True  # Set no_intro to True if an example is provided
 #     # Set the example selection to the provided example number
 #     example_selection(args.example)
 
-
 args = parser.parse_args()
-
 
 clear = lambda: os.system("cls" if os.name == "nt" else "clear")
 
@@ -147,11 +145,6 @@ class examples:
 
             def remainder(a, b):
                 return a % b
-
-        def exit():
-            print("Exiting...")
-            time.sleep(1)
-            return
 
         time.sleep(1)
 
@@ -373,7 +366,15 @@ Do you understand now? (y/n)
                     input("Press enter to continue...")
                     clear()
                     continue
-                result = operation.sqrt(input_1)
+                try:
+                    result = operation.sqrt(input_1)
+                except ValueError:
+                    print(
+                        "Cannot take the square root of a negative number in this calculator."
+                    )
+                    input("Press enter to continue...")
+                    clear()
+                    continue
                 print(f"Result: {result}")
 
             elif choice == "exit" or choice == "x" or choice == "q":
@@ -457,7 +458,12 @@ Do you understand now? (y/n)
             print(pygradientify.Colors.mystic("=" * 50, dir="h"))
             time.sleep(1)
 
-            sides = int(input("How much sides does the dice have: "))
+            try:
+                sides = int(input("How much sides does the dice have: "))
+            except ValueError:
+                print("Put in a number!!")
+                time.sleep(2)
+                continue
             input("Press Enter to roll the dice...")
 
             print("")
@@ -482,7 +488,12 @@ Do you understand now? (y/n)
         print("if-else example")
         print(pygradientify.Colors.mystic("=" * 50, dir="h"))
 
-        num = int(input("Enter a number: "))
+        try:
+            num = int(input("Enter a number: "))
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+            time.sleep(2)
+            return
 
         time.sleep(1)
 
@@ -519,7 +530,7 @@ Do you understand now? (y/n)
         rich.print(syntax)
 
         print(
-            "\nIf-else statements are really powerful, and used all the time.\n AI is technically a lot of if-else statements stacked on top of each other."
+            "\nIf-else statements are really powerful, and used all the time.\nAI is technically a lot of if-else statements stacked on top of each other."
         )
 
         time.sleep(5)
@@ -528,10 +539,106 @@ Do you understand now? (y/n)
 
     def while_loops():
         # Show how while loops work and why they're useful. Have ready made example.
-        return
+        clear()
+
+        print(pygradientify.Colors.mystic("=" * 50, dir="h"))
+        print("While Loops")
+        print(pygradientify.Colors.mystic("=" * 50, dir="h"))
+
+        print(
+            "\nWhile loops are used to repeat a block of code as long as a certain condition is true. \nThey're useful when you don't know how many times you need to repeat the block of code."
+        )
+
+        time.sleep(4)
+
+        print(
+            "\nFor example, the code for the example selection includes a while loop. \nIt keeps running until the user wants to exit. Here's a simpler example:"
+        )
+
+        time.sleep(3)
+
+        string_showcase_code = """
+while True:
+    choice = input("Type 'exit' to exit\\nType anything: ")
+    if choice.lower() == "exit":
+        break
+    else:
+        print("You typed:", choice)
+        """
+
+        syntax = Syntax(
+            string_showcase_code, "python", theme="ansi_dark", line_numbers=True
+        )
+
+        rich.print(syntax)
+
+        time.sleep(1)
+
+        print("Would you like to try this? (y/n)")
+        choice = input()
+
+        if choice.lower() == "y":
+            while True:
+                choice = input("Type 'exit' to exit\nType anything: ")
+                if choice.lower() == "exit":
+                    break
+                else:
+                    print("You typed:", choice)
+
+        print(
+            "\nWhile loops are really powerful, and used all the time.\nMany times through this program."
+        )
+
+        time.sleep(5)
+
+        input("\nPress enter to continue...")
 
     def for_loops():
         # Show how for loops work an why they're useful. Have ready made example.
+        clear()
+
+        print(pygradientify.Colors.mystic("=" * 50, dir="h"))
+        print("For Loops")
+        print(pygradientify.Colors.mystic("=" * 50, dir="h"))
+
+        print(
+            "\nFor loops are used to iterate over something (like a list, string, etc.) \nThey're useful when you know how many times you need to repeat the block of code, \nor when you want to iterate over a sequence of items."
+        )
+
+        time.sleep(4)
+
+        print(
+            "\nFor example, the code for the example selection includes a for loop. \nIt iterates over the choices and prints them. Here's a simpler example:"
+        )
+
+        time.sleep(3)
+
+        string_showcase_code = """
+    choice = input("Type 'exit' to exit\\nEnter anything: ")
+    if choice.lower() == "exit":
+        break
+    for i in choice:
+        print(i)
+        """
+
+        syntax = Syntax(
+            string_showcase_code, "python", theme="ansi_dark", line_numbers=True
+        )
+
+        rich.print(syntax)
+
+        time.sleep(1)
+
+        print("Would you like to try this? (y/n)")
+
+        choice = input()
+        if choice.lower() == "y":
+            choice = input("Enter anything: ")
+
+            for i in choice:
+                print(i)
+
+        input("\nPress enter to continue...")
         return
 
 
@@ -554,6 +661,8 @@ def example_selection():
             "2": ("user_greeting", examples.user_greeting),
             "3": ("dice_roll", examples.dice_roll),
             "4": ("if_else_example", examples.if_else_example),
+            "5": ("while_loops", examples.while_loops),
+            "6": ("for_loops", examples.for_loops),
         }
 
         for i in choices:
@@ -563,8 +672,6 @@ def example_selection():
         choice = input("Number of the example you want to run: ")
 
         time.sleep(1)
-
-        # ERROR: 4 still doesn't work
 
         if choice and choice[0] in choices:
             if len(choice) > 1:
