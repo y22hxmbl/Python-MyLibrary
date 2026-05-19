@@ -641,6 +641,81 @@ while True:
         input("\nPress enter to continue...")
         return
 
+    def data_structs():
+        # Show the different types of data structs and how they work. Have ready made examples.
+        clear()
+
+        print(pygradientify.Colors.mystic("=" * 50, dir="h"))
+        print("Data Structures")
+        print(pygradientify.Colors.mystic("=" * 50, dir="h"))
+
+        time.sleep(1)
+
+        print("Data structures are how we put differernt types of data into a collection.")
+        
+        time.sleep(2)
+
+        print("We have 2 types of data structures, lists and dictinaries.")
+
+        time.sleep(3)
+
+        print("Lists just store data. As an example let's make a computer components list.\n")
+
+        time.sleep(3)
+
+        string_showcase_code = """
+components = ['CPU', 'GPU', 'RAM', 'Motherboard', 'Secondary Storage', 'Power Supply']
+
+for i in components:
+    print(i)
+        """
+
+        syntax = Syntax(
+            string_showcase_code, "python", theme="ansi_dark", line_numbers=True
+        )
+
+        rich.print(syntax)
+
+        time.sleep(5)
+        
+        print("\nWhen we run this, we get.\n")
+
+        components = ['CPU', 'GPU', 'RAM', 'Motherboard', 'Secondary Storage', 'Power Supply']
+        
+        for i in components:
+            print(i)
+
+        
+        time.sleep(4)
+
+        print("This is useful for storing data. But for us, how do we actually store data *inside* the values.")
+
+        time.sleep(2)
+
+        print("A list is a collection of values, now's time to use a dictionary.")
+
+        time.sleep(2)
+
+        string_showcase_code = """
+components = {
+    'CPU': 'AMD Ryzen 7 7800X3D',
+    'GPU': 'NVIDIA RTX 4070 Ti Super',
+    'RAM': '32GB DDR5 6000MHz',
+    'Motherboard': 'MSI MAG B650 Tomahawk',
+    'Secondary Storage': '2TB NVMe M.2 SSD',
+    'Power Supply': '850W 80+ Gold Modular'
+}
+
+for component, spec in components.items():
+    print(f"{component}: {spec}")
+        """
+
+    
+        time.wait(6)
+
+        print("Here we have a dictionary. We not only have our component names, the \" keys\" but also values that belong to the \"keys\"")
+
+        input()
 
 # Add example functions above this line
 
@@ -663,6 +738,7 @@ def example_selection():
             "4": ("if_else_example", examples.if_else_example),
             "5": ("while_loops", examples.while_loops),
             "6": ("for_loops", examples.for_loops),
+            "7": ("data_structures", examples.data_structs)
         }
 
         for i in choices:
