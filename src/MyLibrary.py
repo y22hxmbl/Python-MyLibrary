@@ -651,20 +651,31 @@ while True:
 
         time.sleep(1)
 
-        print("Data structures are how we put differernt types of data into a collection.")
-        
+        print(
+            "Data structures are how we put differernt types of data into a collection."
+        )
+
         time.sleep(2)
 
-        print("We have 2 types of data structures, lists and dictinaries.")
+        print("We have 2 types of data structures, lists and dictionaries.")
 
         time.sleep(3)
 
-        print("Lists just store data. As an example let's make a computer components list.\n")
+        print(
+            "Lists just store data. As an example let's make a computer components list.\n"
+        )
 
         time.sleep(3)
 
         string_showcase_code = """
-components = ['CPU', 'GPU', 'RAM', 'Motherboard', 'Secondary Storage', 'Power Supply']
+components = [
+    'CPU',
+    'GPU',
+    'RAM',
+    'Motherboard',
+    'Secondary Storage',
+    'Power Supply',
+]
 
 for i in components:
     print(i)
@@ -677,18 +688,28 @@ for i in components:
         rich.print(syntax)
 
         time.sleep(5)
-        
+
         print("\nWhen we run this, we get.\n")
 
-        components = ['CPU', 'GPU', 'RAM', 'Motherboard', 'Secondary Storage', 'Power Supply']
-        
+        components = [
+            "CPU",
+            "GPU",
+            "RAM",
+            "Motherboard",
+            "Secondary Storage",
+            "Power Supply",
+        ]
+
         for i in components:
             print(i)
 
-        
+        print("")
+
         time.sleep(4)
 
-        print("This is useful for storing data. But for us, how do we actually store data *inside* the values.")
+        print(
+            "This is useful for storing data. But for us, how do we actually store data *inside* the values."
+        )
 
         time.sleep(2)
 
@@ -710,12 +731,17 @@ for component, spec in components.items():
     print(f"{component}: {spec}")
         """
 
-    
-        time.wait(6)
+        syntax = Syntax(string_showcase_code, "python", theme="monokai")
+        rich.print(syntax)
 
-        print("Here we have a dictionary. We not only have our component names, the \" keys\" but also values that belong to the \"keys\"")
+        time.sleep(6)
+
+        print(
+            'Here we have a dictionary. We not only have our component names, the " keys" but also values that belong to the "keys"'
+        )
 
         input()
+
 
 # Add example functions above this line
 
@@ -738,7 +764,7 @@ def example_selection():
             "4": ("if_else_example", examples.if_else_example),
             "5": ("while_loops", examples.while_loops),
             "6": ("for_loops", examples.for_loops),
-            "7": ("data_structures", examples.data_structs)
+            "7": ("data_structures", examples.data_structs),
         }
 
         for i in choices:
